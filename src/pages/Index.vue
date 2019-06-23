@@ -2,14 +2,16 @@
   <Layout>
     <h1>Leininger Dashboard</h1>
 
-    <div v-for="site in sites">
-      <header class="flex justify-between">
-        <a :href="site.url"><h3>{{ site.name }}</h3></a>
-        <a :href="site.repo">{{ site.provider }}</a>
-      </header>
-      <a :href="`${site.adminUrl}/deploys`">
-        <img :src="`https://api.netlify.com/api/v1/badges/${site.id}/deploy-status`" />
-      </a>
+    <div class="report-card">
+      <div v-for="site in sites" class="card">
+        <header class="flex justify-between">
+          <a :href="site.url"><h3>{{ site.name }}</h3></a>
+          <a :href="site.repo">{{ site.provider }}</a>
+        </header>
+        <a :href="`${site.adminUrl}/deploys`">
+          <img :src="`https://api.netlify.com/api/v1/badges/${site.id}/deploy-status`" />
+        </a>
+      </div>
     </div>
   </Layout>
 </template>
@@ -56,7 +58,21 @@ export default {
 </script>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
+.report-card {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+.card {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.card:hover{
+  box-shadow: 0 1rem 1.5rem 0 rgba(26, 35, 63, 0.1),
+      0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
+}
+h3 {
+  margin-top: 0;
 }
 </style>
