@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1>Nelify Dashboard</h1>
+    <h1>Leininger Dashboard</h1>
 
     <div v-for="site in sites">
       <header class="flex justify-between">
