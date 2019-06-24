@@ -67,10 +67,12 @@ export default {
   background: #fff;
   border-radius: 0.5rem;
   padding: 1rem;
+  transition: transform 0.2s;
 }
 .card:hover{
   box-shadow: 0 1rem 1.5rem 0 rgba(26, 35, 63, 0.1),
       0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
+  transform: scale(1.02);
 }
 h3 {
   margin-top: 0;
