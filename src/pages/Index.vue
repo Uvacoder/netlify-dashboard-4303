@@ -51,7 +51,7 @@ export default {
           screenshot: it.node.screenshot,
           provider: it.node.provider,
         }
-      }).sort((a, b) => a.hash > b.hash ? 1 : -1)
+      })
     }
   }
 }
