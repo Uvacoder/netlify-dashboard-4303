@@ -11,6 +11,14 @@
     "netlify": "^2.4.6"
   },
   "devDependencies": {
-    "dotenv": "^8.0.0"
+    "babel-eslint": "^10.0.2",
+    "dotenv": "^8.0.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-gridsome": "^1.2.6",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "prettier": "^1.18.2"
   }
 }

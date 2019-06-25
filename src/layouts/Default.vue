@@ -1,15 +1,16 @@
 <template>
   <div class="layout">
-    <slot/>
+    <slot />
   </div>
 </template>
 
 <style>
 body {
   background: #f3f4f5;
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
 }
 
