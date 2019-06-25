@@ -3,13 +3,15 @@
     <h1>Leininger Dashboard</h1>
 
     <div class="report-card">
-      <div v-for="site in sites" class="card">
+      <div v-for="site in sites" :key="site.id" class="card">
         <header class="flex justify-between">
-          <a :href="site.url"><h3>{{ site.name }}</h3></a>
+          <a :href="site.url">
+            <h3>{{ site.name }}</h3>
+          </a>
           <a :href="site.repo">{{ site.provider }}</a>
         </header>
         <a :href="`${site.adminUrl}/deploys`">
-          <img :src="`https://api.netlify.com/api/v1/badges/${site.id}/deploy-status`" />
+          <img :src="site.badgeUrl" />
         </a>
       </div>
     </div>
@@ -35,12 +37,12 @@ query Sites {
 
 <script>
 export default {
-  name: "Dashboard",
+  name: 'Dashboard',
   metaInfo: {
-    title: 'Status Report'
+    title: 'Status Report',
   },
   computed: {
-    sites () {
+    sites() {
       return this.$page.sites.edges.map(it => {
         return {
           id: it.node.id,
@@ -50,10 +52,11 @@ export default {
           repo: it.node.repo,
           screenshot: it.node.screenshot,
           provider: it.node.provider,
+          badgeUrl: `https://api.netlify.com/api/v1/badges/${it.node.id}/deploy-status`,
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -69,9 +72,9 @@ export default {
   padding: 1rem;
   transition: all 0.2s;
 }
-.card:hover{
+.card:hover {
   box-shadow: 0 1rem 1.5rem 0 rgba(26, 35, 63, 0.1),
-      0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
+    0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
 }
 h3 {
   margin-top: 0;
