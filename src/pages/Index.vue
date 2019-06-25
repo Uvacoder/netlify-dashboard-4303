@@ -4,13 +4,13 @@
 
     <div class="report-card">
       <div v-for="site in sites" :key="site.id" class="card">
-        <header class="flex justify-between">
-          <a :href="site.url">
+        <header class="flex justify-between items-center">
+          <a :href="site.url" class="title">
             <h3>{{ site.name }}</h3>
           </a>
-          <a :href="site.repo">{{ site.provider }}</a>
+          <a :href="site.repo" class="repo"><github /></a>
         </header>
-        <a :href="`${site.adminUrl}/deploys`">
+        <a :href="`${site.adminUrl}/deploys`" class="badge">
           <img :src="site.badgeUrl" />
         </a>
       </div>
@@ -36,8 +36,13 @@ query Sites {
 </page-query>
 
 <script>
+import github from '@/components/github.vue'
+
 export default {
   name: 'Dashboard',
+  components: {
+    github
+  },
   metaInfo: {
     title: 'Status Report',
   },
@@ -64,7 +69,12 @@ export default {
 .report-card {
   display: grid;
   grid-gap: 1.5rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+@media screen and (min-width: 700px) {
+  .report-card {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .card {
   background: #fff;
@@ -76,7 +86,31 @@ export default {
   box-shadow: 0 1rem 1.5rem 0 rgba(26, 35, 63, 0.1),
     0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
 }
+header {
+  margin-bottom: 1rem;
+}
 h3 {
-  margin-top: 0;
+  margin: 0;
+}
+.title{
+  color: var(--black);
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.title:hover{
+  color: var(--teal);
+}
+.repo{
+  color: var(--grey-dark);
+  transition: color 0.2s;
+}
+.repo:hover {
+  color: var(--black);
+}
+.repo, .repo svg{
+  height: 1.5rem;
+  width: 1.5rem;
 }
 </style>
