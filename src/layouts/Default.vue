@@ -5,6 +5,16 @@
 </template>
 
 <style>
+:root {
+  --black: #1B2B34;
+  --teal: #5FB3B3;
+  --teal-dark: #59A9A5;
+  --grey: #D8DEE9;
+  --grey-dark: #A4ACB9;
+  --red-light: #ed6f7d;
+  --red: #B3545E;
+  --white: #fff;
+}
 body {
   background: #f3f4f5;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -19,6 +29,9 @@ body {
 }
 .justify-between {
   justify-content: space-between;
+}
+.items-center {
+  align-items: center;
 }
 
 .layout {
