@@ -41,7 +41,7 @@ import github from '@/components/github.vue'
 export default {
   name: 'Dashboard',
   components: {
-    github
+    github,
   },
   metaInfo: {
     title: 'Status Report',
@@ -70,6 +70,7 @@ export default {
   display: grid;
   grid-gap: 1.5rem;
   grid-template-columns: 1fr;
+  padding-bottom: 2rem;
 }
 @media screen and (min-width: 700px) {
   .report-card {
@@ -92,24 +93,25 @@ header {
 h3 {
   margin: 0;
 }
-.title{
+.title {
   color: var(--black);
   font-size: 1rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s;
 }
-.title:hover{
+.title:hover {
   color: var(--teal);
 }
-.repo{
+.repo {
   color: var(--grey-dark);
   transition: color 0.2s;
 }
 .repo:hover {
   color: var(--black);
 }
-.repo, .repo svg{
+.repo,
+.repo svg {
   height: 1.5rem;
   width: 1.5rem;
 }
