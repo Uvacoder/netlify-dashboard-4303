@@ -6,13 +6,13 @@
 
 <style>
 :root {
-  --black: #1B2B34;
-  --teal: #5FB3B3;
-  --teal-dark: #59A9A5;
-  --grey: #D8DEE9;
-  --grey-dark: #A4ACB9;
+  --black: #1b2b34;
+  --teal: #5fb3b3;
+  --teal-dark: #59a9a5;
+  --grey: #d8dee9;
+  --grey-dark: #a4acb9;
   --red-light: #ed6f7d;
-  --red: #B3545E;
+  --red: #b3545e;
   --white: #fff;
 }
 body {
@@ -39,6 +39,14 @@ body {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+}
+@supports (padding: max(0px)) {
+  .layout {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-left: 20px, env(safe-area-inset-left);
+    padding-right: 20px, env(safe-area-inset-right);
+  }
 }
 
 .header {
