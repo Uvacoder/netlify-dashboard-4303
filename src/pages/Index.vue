@@ -1,10 +1,10 @@
 <template>
   <Layout>
-    <h1>
-      Leininger Dashboard
+    <h1>Leininger Dashboard</h1>
+    <h2>
+      Showing statuses of my Netlify delpoys
       <span class="count">{{ count }} Websites</span>
-    </h1>
-    <h2>Showing statuses of my Netlify delpoys</h2>
+    </h2>
     <div class="report-card">
       <div v-for="site in sites" :key="site.id" class="card">
         <header class="flex justify-between items-center">
