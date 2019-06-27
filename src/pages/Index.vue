@@ -1,7 +1,10 @@
 <template>
   <Layout>
-    <h1>Leininger Dashboard</h1>
-    <div>Current Site Count: {{ count }}</div>
+    <h1>
+      Leininger Dashboard
+      <span class="count">{{ count }} Websites</span>
+    </h1>
+    <h2>Showing statuses of my Netlify delpoys</h2>
     <div class="report-card">
       <div v-for="site in sites" :key="site.id" class="card">
         <header class="flex justify-between items-center">
@@ -69,11 +72,24 @@ export default {
 </script>
 
 <style>
+.count {
+  color: var(--teal-dark);
+  font-size: 1rem;
+  font-weight: normal;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  color: var(--grey-dark);
+  font-weight: normal;
+  margin: 0;
+}
 .report-card {
   display: grid;
   grid-gap: 1.5rem;
   grid-template-columns: 1fr;
-  padding-bottom: 2rem;
+  padding: 3rem 0;
 }
 @media screen and (min-width: 700px) {
   .report-card {
