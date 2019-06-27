@@ -40,12 +40,10 @@ body {
   padding-left: 20px;
   padding-right: 20px;
 }
-@supports (padding: max(0px)) {
+@media screen and (orientation: landscape) and (max-width: 815px) {
   .layout {
-    max-width: 760px;
-    margin: 0 auto;
-    padding-left: max(20px, env(safe-area-inset-left));
-    padding-right: max(20px, env(safe-area-inset-right));
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 }
 
