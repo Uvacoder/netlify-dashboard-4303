@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <h1>Leininger Dashboard</h1>
-
+    <div>Current Site Count: {{ count }}</div>
     <div class="report-card">
       <div v-for="site in sites" :key="site.id" class="card">
         <header class="flex justify-between items-center">
@@ -60,6 +60,9 @@ export default {
           badgeUrl: `https://api.netlify.com/api/v1/badges/${it.node.id}/deploy-status`,
         }
       })
+    },
+    count() {
+      return this.sites.length
     },
   },
 }
