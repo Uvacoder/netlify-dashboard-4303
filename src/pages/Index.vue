@@ -1,6 +1,11 @@
 <template>
   <Layout>
-    <h1>Leininger Dashboard</h1>
+    <div class="flex">
+      <h1 @click="countIt">Leininger Dashboard</h1>
+      <button v-if="clicker > 10 && !canDeploy" @click="grantAccess">
+        Login
+      </button>
+    </div>
     <span class="count">{{ count }} Websites</span>
     <div class="report-card">
       <div v-for="site in sites" :key="site.id" class="card">
@@ -10,9 +15,20 @@
           </a>
           <a :href="site.repo" class="repo"><github /></a>
         </header>
-        <a :href="`${site.adminUrl}/deploys`" class="badge">
-          <img :src="site.badgeUrl" />
-        </a>
+        <footer class="flex justify-between items-center">
+          <a :href="`${site.adminUrl}/deploys`" class="badge">
+            <img :src="site.badgeUrl" />
+          </a>
+          <div v-if="canDeploy">
+            <button
+              v-if="!deployed.includes(site.name)"
+              @click="triggerDeploy(site.name)"
+            >
+              Deploy
+            </button>
+            <p v-else>Deployed!</p>
+          </div>
+        </footer>
       </div>
     </div>
   </Layout>
@@ -36,6 +52,7 @@ query Sites {
 </page-query>
 
 <script>
+import axios from 'axios'
 import github from '@/components/github.vue'
 
 export default {
@@ -45,6 +62,13 @@ export default {
   },
   metaInfo: {
     title: 'Status Report',
+  },
+  data() {
+    return {
+      clicker: 0,
+      canDeploy: false,
+      deployed: [],
+    }
   },
   computed: {
     sites() {
@@ -63,6 +87,49 @@ export default {
     },
     count() {
       return this.sites.length
+    },
+  },
+  mounted() {
+    console.log('hello')
+  },
+  methods: {
+    triggerDeploy(site) {
+      if (site === 'raleininger') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5d72ce06c82dfba3684e9dcf'
+        )
+      } else if (site === 'rad-addresses') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5d72cd90c33b02a5d7deb8ee'
+        )
+      } else if (site === 'leininger-dashboard') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5d72cd6e4e71d0bd7f2dee6d'
+        )
+      } else if (site === 'rad-gifts') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5d72cd41d6e05e9851e7ca08'
+        )
+      } else if (site === 'leinin') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5d72cdece51595ae3f4a452b'
+        )
+      } else if (site === 'cms-gridsome-demo') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5d72cdb23586e69341236dd4'
+        )
+      } else if (site === 'doinginterneting') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5d72cd074e71d08c332dee8d'
+        )
+      }
+      this.deployed.push(site)
+    },
+    grantAccess() {
+      this.canDeploy = true
+    },
+    countIt() {
+      this.clicker++
     },
   },
 }
