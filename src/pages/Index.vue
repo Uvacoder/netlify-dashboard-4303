@@ -1,8 +1,12 @@
 <template>
   <Layout>
-    <div class="flex">
+    <div class="flex items-center">
       <h1 @click="countIt">Leininger Dashboard</h1>
-      <button v-if="clicker > 10 && !canDeploy" @click="grantAccess">
+      <button
+        v-if="clicker > 10 && !canDeploy"
+        @click="grantAccess"
+        class="login"
+      >
         Login
       </button>
     </div>
@@ -136,6 +140,15 @@ export default {
 </script>
 
 <style>
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
 .count {
   color: var(--teal-dark);
   font-size: 1rem;
@@ -175,6 +188,25 @@ header {
 }
 h3 {
   margin: 0;
+}
+img {
+  display: block;
+}
+button {
+  background: var(--teal);
+  border: none;
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  transition: all 0.3s;
+}
+button:hover {
+  background: var(--black);
+}
+.login {
+  height: 2rem;
+  margin-left: 1rem;
+  padding: 0.25rem 1rem;
 }
 .title {
   color: var(--black);
