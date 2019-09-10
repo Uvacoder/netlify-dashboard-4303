@@ -3,7 +3,7 @@
     <div class="flex items-center">
       <h1 @click="countIt">Leininger Dashboard</h1>
       <button
-        v-if="clicker > 10 && !canDeploy"
+        v-if="clicker >= 10 && !canDeploy"
         @click="grantAccess"
         class="login"
       >
@@ -30,7 +30,7 @@
             >
               Deploy
             </button>
-            <p v-else>Deployed!</p>
+            <p v-else class="sm-text">Deployed!</p>
           </div>
         </footer>
       </div>
@@ -229,5 +229,8 @@ button:hover {
 .repo svg {
   height: 1.5rem;
   width: 1.5rem;
+}
+.sm-text {
+  font-size: 0.75rem;
 }
 </style>
