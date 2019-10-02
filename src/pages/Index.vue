@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div class="flex items-center">
-      <h1 @click="countIt">Leininger Dashboard</h1>
+      <h1 @click="countIt" class="select-none cursor-default">
+        Leininger Dashboard
+      </h1>
       <button
         v-if="clicker >= 10 && !canDeploy"
         @click="grantAccess"
