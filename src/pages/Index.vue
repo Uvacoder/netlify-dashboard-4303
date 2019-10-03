@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="flex items-center">
-      <h1 @click="countIt" class="select-none cursor-default">
+      <h1 @click="countIt">
         Leininger Dashboard
       </h1>
       <button
@@ -157,7 +157,9 @@ export default {
   font-weight: normal;
 }
 h1 {
+  cursor: default;
   margin: 0;
+  user-select: none;
 }
 h2 {
   color: var(--grey-dark);
