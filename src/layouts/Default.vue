@@ -18,6 +18,7 @@
 }
 body {
   background: var(--grey-light);
+  color: var(--black);
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   margin: 0;
@@ -36,7 +37,7 @@ body {
 }
 
 .layout {
-  max-width: 760px;
+  max-width: 800px;
   margin: 0 auto;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -44,8 +45,6 @@ body {
 }
 @supports (padding: max(0px)) {
   .layout {
-    max-width: 760px;
-    margin: 0 auto;
     padding-left: max(1.25rem, env(safe-area-inset-left));
     padding-right: max(1.25rem, env(safe-area-inset-right));
   }
