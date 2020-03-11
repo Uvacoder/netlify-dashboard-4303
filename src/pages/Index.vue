@@ -21,7 +21,7 @@
           </a>
           <a :href="site.repo" class="repo"><github /></a>
         </header>
-        <footer class="flex justify-between items-center">
+        <footer class="flex justify-between items-end h-8">
           <a :href="`${site.adminUrl}/deploys`" class="badge">
             <img :src="site.badgeUrl" />
           </a>
