@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-0 mx-auto max-w-4xl w-full">
+  <div class="container my-0 mx-auto p-6 max-w-4xl w-full">
     <slot />
   </div>
 </template>
@@ -15,9 +15,6 @@ body {
   line-height: 1.5;
 }
 
-.container {
-  padding: theme('spacing.6');
-}
 @supports (padding: max(0px)) {
   .container {
     padding-left: max(theme('spacing.6'), env(safe-area-inset-left));
