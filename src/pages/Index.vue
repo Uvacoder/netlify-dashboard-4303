@@ -56,20 +56,20 @@
 </template>
 
 <page-query>
-query Sites {
-  sites: allSites {
-    edges {
-      node {
-        id
-        name
-        url
-        adminUrl
-        repo
-        provider
+  query Sites {
+    sites: allSites {
+      edges {
+        node {
+          id
+          name
+          url
+          adminUrl
+          repo
+          provider
+        }
       }
     }
   }
-}
 </page-query>
 
 <script>
@@ -82,7 +82,7 @@ export default {
     github,
   },
   metaInfo: {
-    title: 'Status Report',
+    title: 'Dashboard',
   },
   data() {
     return {
