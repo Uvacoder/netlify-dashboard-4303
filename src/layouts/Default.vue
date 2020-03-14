@@ -17,8 +17,8 @@ body {
 
 @supports (padding: max(0px)) {
   .container {
-    padding-left: max(theme('spacing.6'), env(safe-area-inset-left));
-    padding-right: max(theme('spacing.6'), env(safe-area-inset-right));
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
   }
 }
 </style>
