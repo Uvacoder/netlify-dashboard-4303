@@ -187,7 +187,7 @@ h2 {
     0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
 }
 header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 h3 {
   margin: 0;
