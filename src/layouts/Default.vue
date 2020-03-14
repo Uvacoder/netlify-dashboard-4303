@@ -26,16 +26,6 @@ body {
   line-height: 1.5;
 }
 
-.flex {
-  display: flex;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.items-center {
-  align-items: center;
-}
-
 .layout {
   max-width: 800px;
   margin: 0 auto;

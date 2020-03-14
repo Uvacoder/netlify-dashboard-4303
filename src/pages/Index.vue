@@ -1,7 +1,10 @@
 <template>
   <Layout>
     <div class="flex items-center">
-      <h1 @click="countIt" class="text-3xl font-bold">
+      <h1
+        @click="countIt"
+        class="text-3xl font-bold select-none m-0 cursor-default"
+      >
         Leininger Dashboard
       </h1>
       <button
@@ -12,9 +15,13 @@
         Login
       </button>
     </div>
-    <span class="count">{{ count }} Websites</span>
+    <p class="text-teal">{{ count }} Websites</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 py-12">
-      <div v-for="site in sites" :key="site.id" class="card">
+      <div
+        v-for="site in sites"
+        :key="site.id"
+        class="bg-white rounded-md p-4 transition-shadow ease-out duration-300 hover:shadow-xl"
+      >
         <header class="flex justify-between items-center">
           <a :href="site.url" class="title">
             <h3 class="font-bold text-lg">{{ site.name }}</h3>
@@ -150,41 +157,10 @@ export default {
 </script>
 
 <style>
-.count {
-  color: var(--teal-dark);
-  font-size: 1rem;
-  font-weight: normal;
-}
-h1 {
-  cursor: default;
-  margin: 0;
-  user-select: none;
-}
 h2 {
   color: var(--grey-dark);
   font-weight: normal;
   margin: 0;
-}
-.report-card {
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: 1fr;
-  padding: 3rem 0;
-}
-@media screen and (min-width: 700px) {
-  .report-card {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.card {
-  background: #fff;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  transition: all 0.2s;
-}
-.card:hover {
-  box-shadow: 0 1rem 1.5rem 0 rgba(26, 35, 63, 0.1),
-    0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
 }
 header {
   margin-bottom: 0.5rem;
