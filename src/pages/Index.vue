@@ -22,15 +22,23 @@
         :key="site.id"
         class="bg-white rounded-md p-4 transition-shadow ease-out duration-300 hover:shadow-xl"
       >
-        <header class="flex justify-between items-center">
-          <a :href="site.url" class="title">
-            <h3 class="font-bold text-lg">{{ site.name }}</h3>
+        <header class="flex justify-between items-center mb-2">
+          <a
+            :href="site.url"
+            class="text-black no-underline uppercase duration-200 transition-colors hover:text-teal-dark"
+          >
+            <h3 class="font-bold text-lg m-0">{{ site.name }}</h3>
           </a>
-          <a :href="site.repo" class="repo"><github /></a>
+          <a
+            :href="site.repo"
+            class="text-grey-dark hover:text-black duration-200 transition-colors"
+          >
+            <github class="h-6 w-6" />
+          </a>
         </header>
         <footer class="flex justify-between items-end h-8">
           <a :href="`${site.adminUrl}/deploys`" class="badge">
-            <img :src="site.badgeUrl" />
+            <img :src="site.badgeUrl" class="block" />
           </a>
           <div v-if="canDeploy">
             <button
@@ -39,7 +47,7 @@
             >
               Deploy
             </button>
-            <p v-else class="sm-text">Deployed!</p>
+            <p v-else class="text-sm text-grey-dark">Deployed!</p>
           </div>
         </footer>
       </div>
@@ -157,59 +165,15 @@ export default {
 </script>
 
 <style>
-h2 {
-  color: var(--grey-dark);
-  font-weight: normal;
-  margin: 0;
-}
-header {
-  margin-bottom: 0.5rem;
-}
-h3 {
-  margin: 0;
-}
-img {
-  display: block;
-}
 button {
-  background: var(--teal);
+  background: theme('colors.teal');
   border: none;
-  color: var(--white);
+  color: theme('colors.white');
   font-size: 0.75rem;
   padding: 4px 8px;
   transition: all 0.3s;
 }
 button:hover {
-  background: var(--black);
-}
-.login {
-  height: 2rem;
-  margin-left: 1rem;
-  padding: 0.25rem 1rem;
-}
-.title {
-  color: var(--black);
-  font-size: 1rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.title:hover {
-  color: var(--teal);
-}
-.repo {
-  color: var(--grey-dark);
-  transition: color 0.2s;
-}
-.repo:hover {
-  color: var(--black);
-}
-.repo,
-.repo svg {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-.sm-text {
-  font-size: 0.75rem;
+  background: theme('colors.black');
 }
 </style>
