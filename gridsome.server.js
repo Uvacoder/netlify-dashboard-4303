@@ -8,12 +8,11 @@ require('dotenv').config()
 const NetlifyAPI = require('netlify')
 const netlify = new NetlifyAPI(process.env.NETLIFY_ACCESS_KEY)
 
-
-module.exports = function (api) {
+module.exports = function(api) {
   api.loadSource(async ({ addContentType }) => {
     const sites = await netlify.listSites()
     const contentType = addContentType({
-      typeName: 'Sites'
+      typeName: 'Sites',
     })
 
     for (const site of sites) {
@@ -26,7 +25,7 @@ module.exports = function (api) {
           screenshot: site.screenshot_url,
           repo: site.build_settings.repo_url,
           provider: site.build_settings.provider,
-        }
+        },
       })
     }
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api

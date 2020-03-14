@@ -1,27 +1,27 @@
 <template>
   <Layout>
     <div class="flex items-center">
-      <h1 @click="countIt">
+      <h1 @click="countIt" class="text-3xl font-bold">
         Leininger Dashboard
       </h1>
       <button
         v-if="clicker >= 10 && !canDeploy"
         @click="grantAccess"
-        class="login"
+        class="ml-4 px-4 leading-5"
       >
         Login
       </button>
     </div>
     <span class="count">{{ count }} Websites</span>
-    <div class="report-card">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 py-12">
       <div v-for="site in sites" :key="site.id" class="card">
         <header class="flex justify-between items-center">
           <a :href="site.url" class="title">
-            <h3>{{ site.name }}</h3>
+            <h3 class="font-bold text-lg">{{ site.name }}</h3>
           </a>
           <a :href="site.repo" class="repo"><github /></a>
         </header>
-        <footer class="flex justify-between items-center">
+        <footer class="flex justify-between items-end h-8">
           <a :href="`${site.adminUrl}/deploys`" class="badge">
             <img :src="site.badgeUrl" />
           </a>
@@ -128,6 +128,14 @@ export default {
         axios.post(
           'https://api.netlify.com/build_hooks/5d72cd074e71d08c332dee8d'
         )
+      } else if (site === 'fauna-db') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5e68d0fa47b204860bf5e90e'
+        )
+      } else if (site === 'wp-starter') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5e68d16d3a3ec967abca6ce4'
+        )
       }
       this.deployed.push(site)
     },
@@ -142,15 +150,6 @@ export default {
 </script>
 
 <style>
-.flex {
-  display: flex;
-}
-.justify-center {
-  justify-content: center;
-}
-.items-center {
-  align-items: center;
-}
 .count {
   color: var(--teal-dark);
   font-size: 1rem;
@@ -188,7 +187,7 @@ h2 {
     0 0.25rem 0.5rem 0 rgba(27, 43, 52, 0.06);
 }
 header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 h3 {
   margin: 0;
