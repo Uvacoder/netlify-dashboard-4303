@@ -20,18 +20,18 @@
       <div
         v-for="site in sites"
         :key="site.id"
-        class="bg-white rounded-md p-4 transition-shadow ease-out duration-300 hover:shadow-xl"
+        class="bg-white dark:bg-grey-darker rounded-md p-4 transition-all ease-out duration-300 hover:shadow-xl dark:hover:border-teal border-transparent border"
       >
         <header class="flex justify-between items-center mb-2">
           <a
             :href="site.url"
-            class="text-black no-underline uppercase duration-200 transition-colors hover:text-teal-dark"
+            class="text-black dark:text-grey-light no-underline uppercase duration-200 transition-colors hover:text-teal"
           >
             <h3 class="font-bold text-lg m-0">{{ site.name }}</h3>
           </a>
           <a
             :href="site.repo"
-            class="text-grey-dark hover:text-black duration-200 transition-colors"
+            class="text-grey-dark hover:text-black dark:hover:text-grey-light duration-200 transition-colors"
           >
             <github class="h-6 w-6" />
           </a>
@@ -164,7 +164,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 button {
   background: theme('colors.teal');
   border: none;
@@ -172,8 +172,11 @@ button {
   font-size: 0.75rem;
   padding: 4px 8px;
   transition: all 0.3s;
-}
-button:hover {
-  background: theme('colors.black');
+  &:hover {
+    background: theme('colors.black');
+    @screen dark {
+      background: theme('colors.teal-dark');
+    }
+  }
 }
 </style>
