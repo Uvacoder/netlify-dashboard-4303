@@ -31,6 +31,7 @@
           </a>
           <a
             :href="site.repo"
+            :title="`${site.name} github`"
             class="text-grey-dark hover:text-black dark:hover:text-grey-light duration-200 transition-colors"
           >
             <github class="h-6 w-6" />
@@ -38,7 +39,11 @@
         </header>
         <footer class="flex justify-between items-end h-8">
           <a :href="`${site.adminUrl}/deploys`" class="badge">
-            <img :src="site.badgeUrl" class="block" />
+            <img
+              :src="site.badgeUrl"
+              :alt="`${site.name} deploy status.`"
+              class="block"
+            />
           </a>
           <div v-if="canDeploy">
             <button
