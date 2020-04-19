@@ -15,7 +15,7 @@
         Login
       </button>
     </div>
-    <p class="text-teal">{{ count }} Websites</p>
+    <p class="text-teal-dark dark:text-teal">{{ count }} Websites</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 py-12">
       <div
         v-for="site in sites"
@@ -25,7 +25,7 @@
         <header class="flex justify-between items-center mb-2">
           <a
             :href="site.url"
-            class="text-black dark:text-grey-light no-underline uppercase duration-200 transition-colors hover:text-teal"
+            class="text-black dark:text-grey-light no-underline uppercase duration-200 transition-colors dark:hover:text-teal hover:text-teal-dark"
           >
             <h3 class="font-bold text-lg m-0">{{ site.name }}</h3>
           </a>
@@ -88,6 +88,14 @@ export default {
   },
   metaInfo: {
     title: 'Dashboard',
+    meta: [
+      {
+        key: 'description',
+        name: 'description',
+        content:
+          'This is a dashboard of the current state of sites I host on Netlify.',
+      },
+    ],
   },
   data() {
     return {
@@ -171,17 +179,14 @@ export default {
 
 <style lang="scss">
 button {
-  background: theme('colors.teal');
+  background: theme('colors.teal-dark');
   border: none;
   color: theme('colors.white');
   font-size: 0.75rem;
   padding: 4px 8px;
   transition: all 0.3s;
   &:hover {
-    background: theme('colors.black');
-    @screen dark {
-      background: theme('colors.teal-dark');
-    }
+    background: theme('colors.grey-darker');
   }
 }
 </style>
