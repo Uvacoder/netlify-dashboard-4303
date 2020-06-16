@@ -164,6 +164,10 @@ export default {
         axios.post(
           'https://api.netlify.com/build_hooks/5e68d16d3a3ec967abca6ce4'
         )
+      } else if (site === 'dev-links') {
+        axios.post(
+          'https://api.netlify.com/build_hooks/5ec194902723aa07f1a5e523'
+        )
       }
       this.deployed.push(site)
     },
