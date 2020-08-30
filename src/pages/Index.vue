@@ -166,7 +166,7 @@ export default {
         )
       } else if (site === 'dev-links') {
         axios.post(
-          'https://api.netlify.com/build_hooks/5ec194902723aa07f1a5e523'
+          'https://api.netlify.com/build_hooks/5f4c098a281ab685e15f5e54'
         )
       }
       this.deployed.push(site)
