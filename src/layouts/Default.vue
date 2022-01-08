@@ -1,28 +1,35 @@
 <template>
-  <div class="layout my-0 mx-auto p-6 max-w-4xl w-full">
+  <div class="layout">
     <slot />
   </div>
 </template>
 
-<style>
+<style lang="scss">
 body {
-  background: theme('colors.grey-light');
-  color: theme('colors.black');
+  background: #f4f6f9;
+  color: #0f1c23;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  @screen dark {
-    background: theme('colors.black');
-    color: theme('colors.grey-light');
+  @media (prefers-color-scheme: dark) {
+    background: #0f1c23;
+    color: #f4f6f9;
   }
+}
+
+.layout {
+  margin: 0 auto;
+  max-width: 64rem;
+  padding: 1.5rem;
+  width: 100%;
 }
 
 @supports (padding: max(0px)) {
   .layout {
-    padding-left: max(theme('spacing.6'), env(safe-area-inset-left));
-    padding-right: max(theme('spacing.6'), env(safe-area-inset-right));
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
   }
 }
 </style>
