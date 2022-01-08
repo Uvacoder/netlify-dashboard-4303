@@ -22,7 +22,7 @@
             :href="site.url"
             class="title"
           >
-            <h2 class="">{{ site.name }}</h2>
+            <p>{{ site.name }}</p>
           </a>
           <a
             :href="site.repo"
@@ -152,7 +152,7 @@ export default {
   display: grid;
   gap: 1.5rem;
   padding: 3rem 0;
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 700px) {
     grid-template-columns:  1fr 1fr;
   }
 }
@@ -176,7 +176,7 @@ export default {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
   footer {
     align-items: flex-end;
@@ -187,7 +187,7 @@ export default {
 }
 .title {
   color: #0f1c23;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
