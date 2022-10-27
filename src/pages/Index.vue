@@ -3,8 +3,8 @@
     <header>
       <div class="site-title">
         <h1 @click="countIt">
-          Status is what?
-          Status is who? 
+          Status is what?<br>
+          Status is who?<br> 
           Chika-chika DASHBOARD
         </h1>
         <button v-if="clicker >= 10 && !canDeploy" @click="grantAccess" class="login-btn">
