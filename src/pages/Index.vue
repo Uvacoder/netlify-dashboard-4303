@@ -5,7 +5,7 @@
         <h1 @click="countIt">
           Status is what?<br>
           Status is who?<br> 
-          Chika-chika DASHBOARD
+          <h2>Chika-chika DASHBOARD</h2>
         </h1>
         <button v-if="clicker >= 10 && !canDeploy" @click="grantAccess" class="login-btn">
           Login
@@ -196,6 +196,11 @@ export default {
   transition: color 0.2s ease-in-out;
   &:hover {
     color: #00999B;
+  }
+  h2 {
+  color: #44fba5;
+  font-size: 1.250rem;
+  font-weight: bold;
   }
   @media (prefers-color-scheme: dark) {
     color: #f4f6f9;
