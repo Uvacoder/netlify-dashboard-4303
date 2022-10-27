@@ -188,7 +188,7 @@ export default {
   }
 }
 .title {
-  color: #0f1c23;
+  color: #1e2309;
   font-size: 1.125rem;
   font-weight: bold;
   text-decoration: none;
@@ -198,7 +198,7 @@ export default {
     color: #00999B;
   }
   h2 {
-  color: #44fba5;
+  color: #00999B;
   font-size: 1.250rem;
   font-weight: bold;
   }
