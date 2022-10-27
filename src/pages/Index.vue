@@ -3,7 +3,7 @@
     <header>
       <div class="site-title">
         <h1 @click="countIt">
-          Leininger Dashboard
+          Status is what? Status is who? Chika-chika DASHBOARD
         </h1>
         <button v-if="clicker >= 10 && !canDeploy" @click="grantAccess" class="login-btn">
           Login
